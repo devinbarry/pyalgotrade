@@ -18,7 +18,7 @@
 .. moduleauthor:: Gabriel Martin Becedillas Ruiz <gabriel.becedillas@gmail.com>
 """
 
-import SimpleXMLRPCServer
+import xmlrpc.server
 import pickle
 import threading
 import time
@@ -58,15 +58,15 @@ class Job(object):
 
 
 # Restrict to a particular path.
-class RequestHandler(SimpleXMLRPCServer.SimpleXMLRPCRequestHandler):
+class RequestHandler(xmlrpc.server.SimpleXMLRPCRequestHandler):
     rpc_paths = ('/PyAlgoTradeRPC',)
 
 
-class Server(SimpleXMLRPCServer.SimpleXMLRPCServer):
+class Server(xmlrpc.server.SimpleXMLRPCServer):
     def __init__(self, paramSource, resultSinc, barFeed, address, port, autoStop=True, batchSize=200):
         assert batchSize > 0, "Invalid batch size"
 
-        SimpleXMLRPCServer.SimpleXMLRPCServer.__init__(self, (address, port), requestHandler=RequestHandler, logRequests=False, allow_none=True)
+        xmlrpc.server.SimpleXMLRPCServer.__init__(self, (address, port), requestHandler=RequestHandler, logRequests=False, allow_none=True)
         self.__batchSize = batchSize
         self.__paramSource = paramSource
         self.__resultSinc = resultSinc

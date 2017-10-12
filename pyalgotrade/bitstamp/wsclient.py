@@ -20,7 +20,7 @@
 
 import datetime
 import threading
-import Queue
+import queue
 
 from pyalgotrade.websocket import pusher
 from pyalgotrade.bitstamp import common
@@ -131,7 +131,7 @@ class WebSocketClient(pusher.WebSocketClient):
         common.logger.warning("Disconnection detected.")
         try:
             self.stopClient()
-        except Exception, e:
+        except Exception as e:
             common.logger.error("Error stopping websocket client: %s." % (str(e)))
         self.__queue.put((WebSocketClient.Event.DISCONNECTED, None))
 
@@ -170,7 +170,7 @@ class WebSocketClientThread(threading.Thread):
 
     def __init__(self):
         super(WebSocketClientThread, self).__init__()
-        self.__queue = Queue.Queue()
+        self.__queue = queue.Queue()
         self.__wsClient = None
 
     def getQueue(self):
@@ -191,5 +191,5 @@ class WebSocketClientThread(threading.Thread):
             if self.__wsClient is not None:
                 common.logger.info("Stopping websocket client.")
                 self.__wsClient.stopClient()
-        except Exception, e:
+        except Exception as e:
             common.logger.error("Error stopping websocket client: %s." % (str(e)))

@@ -12,5 +12,3 @@ doc/_build
 /build
 /PyAlgoTrade.egg-info
 /notebooks
-
-/testcases/credentials.py
