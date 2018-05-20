@@ -32,7 +32,7 @@ Main Features
 Installation
 ------------
 
-PyAlgoTrade is developed using Python 2.7 and depends on:
+PyAlgoTrade is developed using Python 3.6 and depends on:
 
  * [NumPy and SciPy](http://numpy.scipy.org/).
  * [pytz](http://pytz.sourceforge.net/).
