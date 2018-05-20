@@ -16,7 +16,7 @@ services:
 
 before_install:
   - docker build -t testcases -f travis/Dockerfile .
-  - sudo python3.6 -m pip install coveralls
+  - sudo python -m pip install coveralls
 
 script:
   - docker run --name testcases --env TWITTER_CONSUMER_KEY=$TWITTER_CONSUMER_KEY --env TWITTER_CONSUMER_SECRET=$TWITTER_CONSUMER_SECRET --env TWITTER_ACCESS_TOKEN=$TWITTER_ACCESS_TOKEN --env TWITTER_ACCESS_TOKEN_SECRET=$TWITTER_ACCESS_TOKEN_SECRET testcases
