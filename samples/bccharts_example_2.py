@@ -41,7 +41,7 @@ class VWAPMomentum(strategy.BacktestingStrategy):
             try:
                 self.limitOrder(self.__instrument, price, size)
             except Exception as e:
-                self.error("Failed to buy: %s" % (e))
+                self.error("Failed to buy: %s" % e)
 
     def _sellSignal(self, price):
         buyOrders, sellOrders = self._getActiveOrders()
@@ -73,11 +73,7 @@ class VWAPMomentum(strategy.BacktestingStrategy):
         else:
             orderType = "Sell"
         self.info("%s order %d updated - Status: %s - %s" % (
-            orderType,
-            order.getId(),
-            basebroker.Order.State.toString(order.getState()),
-            order.getExecutionInfo(),
-        ))
+            orderType, order.getId(), basebroker.Order.State.toString(order.getState()), order.getExecutionInfo()))
 
 
 def main(plot):
