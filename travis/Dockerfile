@@ -1,10 +1,13 @@
-FROM gbecedillas/pyalgotrade:0.18
+FROM pyalgotrade:0.18
 MAINTAINER Gabriel Martin Becedillas Ruiz <gabriel.becedillas@gmail.com>
 
+ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 
 RUN pip install nose
 RUN pip install nose-cov
+
+
 # Required by matplotlib
 RUN apt-get install -y python-tk 
 
