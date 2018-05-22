@@ -18,6 +18,7 @@
 .. moduleauthor:: Gabriel Martin Becedillas Ruiz <gabriel.becedillas@gmail.com>
 """
 
+from operator import itemgetter
 from pyalgotrade import feed
 from pyalgotrade import dataseries
 
@@ -36,8 +37,7 @@ class MemFeed(feed.BaseFeed):
     def start(self):
         super(MemFeed, self).start()
         # Now that all the data is in place, sort it to dispatch it in order.
-        cmpFun = lambda x, y: cmp(x[0], y[0])
-        self.__values.sort(cmpFun)
+        self.__values.sort(key=itemgetter(0))
 
     def stop(self):
         pass

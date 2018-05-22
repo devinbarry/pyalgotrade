@@ -137,13 +137,12 @@ def main(plot):
     instruments = ["gld", "gdx"]
     windowSize = 50
 
-
     # Load the bars. These files were manually downloaded from Yahoo Finance.
     feed = yahoofeed.Feed()
     for year in range(2006, 2012+1):
         for instrument in instruments:
             fileName = "%s-%d-yahoofinance.csv" % (instrument, year)
-            print "Loading bars from %s" % fileName
+            print("Loading bars from %s" % fileName)
             feed.addBarsFromCSV(instrument, fileName)
 
     strat = StatArb(feed, instruments[0], instruments[1], windowSize)

@@ -326,7 +326,7 @@ class Broker(broker.Broker):
         """Returns the portfolio value (cash + shares * price)."""
 
         ret = self.getCash()
-        for instrument, shares in self.__shares.iteritems():
+        for instrument, shares in self.__shares.items():
             instrumentPrice = self._getPriceForInstrument(instrument)
             assert instrumentPrice is not None, "Price for %s is missing" % instrument
             ret += instrumentPrice * shares

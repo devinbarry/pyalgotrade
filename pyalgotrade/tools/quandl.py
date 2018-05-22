@@ -199,7 +199,7 @@ def main():
                 else:
                     assert args.frequency == "weekly", "Invalid frequency"
                     download_weekly_bars(args.source_code, args.table_code, year, fileName, args.auth_token)
-            except Exception, e:
+            except Exception as e:
                 if args.ignore_errors:
                     logger.error(str(e))
                     continue

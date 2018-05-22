@@ -146,7 +146,7 @@ def main(plot):
     for year in range(2007, 2013+1):
         for instrument in instruments:
             fileName = "%s-%d-yahoofinance.csv" % (instrument, year)
-            print "Loading bars from %s" % fileName
+            print("Loading bars from %s" % fileName)
             feed.addBarsFromCSV(instrument, fileName)
 
     # Build the strategy and attach some metrics.
