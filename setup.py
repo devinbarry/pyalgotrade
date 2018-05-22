@@ -45,7 +45,6 @@ setup(
         'pyalgotrade.talibext',
         'pyalgotrade.technical',
         'pyalgotrade.tools',
-        'pyalgotrade.twitter',
         'pyalgotrade.utils',
         'pyalgotrade.websocket',
     ],
@@ -61,6 +60,5 @@ setup(
         'TALib':  ["Cython", "TA-Lib"],
         'Plotting':  ["matplotlib"],
         'Bitstamp':  ["ws4py>=0.3.4", "tornado"],
-        'Twitter':  ["tweepy"],
     },
 )
